@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import logo from '../images/logo-bota-fe.png';
 ---
 
 <Layout title='Programa Bota Fé'>
 	<main>
 		<div class='main-content'>
-			<img class='logo' src='src/assets/logo-bota-fe.png' alt='' />
+			<img class='logo' src={logo} alt='' />
 			<h1 class='cta-title'>Estamos chegando!</h1>
 			<p class='cta-description'>
 				Inscreva-se para ser notificado assim que o programa estrear!Inscreva-se
@@ -35,7 +36,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	main {
-		background: url('../assets/hero-background.png') center;
+		background: url('../images/hero-background.png') center;
 		height: 100dvh;
 		display: grid;
 		gap: 90px;
