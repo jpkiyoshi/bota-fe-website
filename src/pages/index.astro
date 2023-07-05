@@ -1,17 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-if (Astro.request.method === 'POST') {
-	try {
-		const data = await Astro.request.formData();
-		const email = data.get('email');
-		console.log(email);
-	} catch (error) {
-		if (error instanceof Error) {
-			console.error(error.message);
-		}
-	}
-}
 ---
 
 <Layout title='Programa Bota Fé'>
