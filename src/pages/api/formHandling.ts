@@ -18,7 +18,7 @@ export const post: APIRoute = async ({ request }) => {
 		);
 	}
 
-	addItem(email);
+	await addItem(email);
 
 	return new Response(
 		JSON.stringify({
