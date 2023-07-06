@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import logo from '../images/logo-bota-fe.png';
+import EmailForm from '../components/EmailForm';
 ---
 
 <Layout title='Programa Bota Fé'>
 	<main>
 		<div class='main-content'>
-			<img class='logo' src={logo} alt='' />
+			<img class='logo' src={logo} alt='Logo Bota Fé' />
 			<h1 class='cta-title'>Estamos chegando!</h1>
 			<p class='cta-description'>
 				Inscreva-se para ser notificado assim que o programa estrear!Inscreva-se
@@ -15,22 +16,7 @@ import logo from '../images/logo-bota-fe.png';
 				assim que o programa estrear!
 			</p>
 		</div>
-		<form class='form' name='email' method='POST' data-netlify='true'>
-			<label for='email'
-				>Inscreva-se para ser notificado assim que o programa estrear!</label
-			>
-			<div class='form-control'>
-				<input
-					required
-					minlength='5'
-					type='email'
-					placeholder='Email'
-					name='email'
-					id='email'
-				/>
-				<button type='submit' class='cta-btn'>Enviar</button>
-			</div>
-		</form>
+		<EmailForm client:load />
 	</main>
 </Layout>
 
@@ -70,49 +56,6 @@ import logo from '../images/logo-bota-fe.png';
 		text-align: center;
 		max-width: 80ch;
 		opacity: 0.8;
-	}
-	.form {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		text-align: center;
-	}
-	.form label {
-		opacity: 0.8;
-	}
-	.form-control {
-		position: relative;
-		display: flex;
-		justify-content: center;
-		gap: 10px;
-		width: fit-content;
-		margin-inline: auto;
-		height: 50px;
-	}
-	#email {
-		border-radius: 500px;
-		padding: 0.5rem;
-		border: 1px solid var(--accent);
-		color: #fff;
-		font-size: 1rem;
-		width: 350px;
-		padding-inline: 20px;
-		background: transparent;
-	}
-	.cta-btn {
-		position: absolute;
-		right: 3px;
-		top: 1px;
-		background: black;
-		color: #fff;
-		border: none;
-		border-radius: 500px;
-		padding: 15px 20px;
-		transition: scale 250ms;
-	}
-	.cta-btn:hover {
-		transition: 100ms;
-		scale: 1.1;
 	}
 
 	@keyframes float {
