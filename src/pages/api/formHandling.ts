@@ -47,7 +47,9 @@ async function addItem(text: any) {
 						{
 							type: 'text',
 							text: {
-								content: new Date().toLocaleString(),
+								content: new Date().toLocaleString('pt-BR', {
+									timeZone: 'America/Sao_Paulo',
+								}),
 							},
 							annotations: {
 								bold: true,
