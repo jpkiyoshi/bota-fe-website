@@ -5,7 +5,7 @@ const EmailForm = () => {
 	const [successMsg, setSuccessMsg] = useState('');
 	const [showForm, setShowForm] = useState(true);
 
-	const handleSubmit = async e => {
+	async function handleSubmit(e) {
 		e.preventDefault();
 
 		const formData = new FormData(e.target);
@@ -22,7 +22,7 @@ const EmailForm = () => {
 		}
 
 		setShowForm(false);
-	};
+	}
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit}>

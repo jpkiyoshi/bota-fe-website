@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import logo from '../images/logo-bota-fe.png';
 import EmailForm from '../components/EmailForm';
+import { Icon } from 'astro-icon';
 ---
 
 <Layout title='Programa Bota Fé'>
@@ -9,19 +10,18 @@ import EmailForm from '../components/EmailForm';
 		<div class='main-content'>
 			<img class='logo' src={logo} alt='Logo Bota Fé' />
 			<h1 class='cta-title'>Estamos chegando!</h1>
-			<p class='cta-description'>
-				Inscreva-se para ser notificado assim que o programa estrear!Inscreva-se
-				para ser notificado assim que o programa estrear!Inscreva-se para ser
-				notificado assim que o programa estrear!Inscreva-se para ser notificado
-				assim que o programa estrear!
-			</p>
+			<p class='cta-description'>O programa que vai mudar sua vida.</p>
 		</div>
 		<EmailForm client:load />
+		<a href='https://www.instagram.com' class='icon-link'>
+			<Icon href='https://www.instagram.com' name='mdi:instagram' /></a
+		>
 	</main>
 </Layout>
 
 <style>
 	main {
+		background-color: black;
 		background: url('../images/hero-background.png') center;
 		height: 100dvh;
 		display: grid;
@@ -50,12 +50,26 @@ import EmailForm from '../components/EmailForm';
 		margin-block-start: 50px;
 		text-transform: uppercase;
 		text-align: center;
+		text-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+			6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+			12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+			22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+			41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
 	}
 	.cta-description {
 		font-size: 1.25rem;
 		text-align: center;
 		max-width: 80ch;
 		opacity: 0.8;
+	}
+
+	.icon-link {
+		color: white;
+		margin-inline: auto;
+	}
+
+	[astro-icon] {
+		width: 20px;
 	}
 
 	@keyframes float {
