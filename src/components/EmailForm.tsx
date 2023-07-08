@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import styles from './EmailForm.module.css';
+import { JSXInternal } from 'preact/src/jsx';
 
 const EmailForm = () => {
-	const [successMsg, setSuccessMsg] = useState('');
-	const [showForm, setShowForm] = useState(true);
+	const [successMsg, setSuccessMsg] = useState<string>('');
+	const [showForm, setShowForm] = useState<boolean>(true);
 
-	async function handleSubmit(e) {
+	async function handleSubmit(e: JSXInternal.TargetedEvent<HTMLFormElement, Event>) {
 		e.preventDefault();
 
-		const formData = new FormData(e.target);
+		const formData = new FormData(e.currentTarget);
 
 		const response = await fetch('/api/notionClient', {
 			method: 'POST',
@@ -34,7 +35,7 @@ const EmailForm = () => {
 					<div className={styles.formControl}>
 						<input
 							required
-							minLength='5'
+							minLength={5}
 							type='email'
 							placeholder='Email'
 							name='email'
