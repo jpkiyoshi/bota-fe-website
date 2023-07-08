@@ -10,7 +10,7 @@ const EmailForm = () => {
 
 		const formData = new FormData(e.target);
 
-		const response = await fetch('/api/formHandling', {
+		const response = await fetch('/api/notionClient', {
 			method: 'POST',
 			body: formData,
 		});

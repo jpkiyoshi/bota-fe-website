@@ -57,6 +57,14 @@ async function addItem(text: any) {
 						},
 					],
 				},
+				Notificação: {
+					people: [
+						{
+							object: 'user',
+							id: '3ea45fc2-08e2-45e3-8aef-4f8ae62f8858',
+						},
+					],
+				},
 			},
 		});
 		console.log('Success! Entry added.');
