@@ -42,21 +42,7 @@ async function addItem(text: any) {
 						},
 					],
 				},
-				Horário: {
-					rich_text: [
-						{
-							type: 'text',
-							text: {
-								content: new Date().toLocaleString('pt-BR', {
-									timeZone: 'America/Sao_Paulo',
-								}),
-							},
-							annotations: {
-								bold: true,
-							},
-						},
-					],
-				},
+
 				Notificação: {
 					people: [
 						{
@@ -65,10 +51,23 @@ async function addItem(text: any) {
 						},
 					],
 				},
+				Data: {
+					date: {
+						start: getBRTimeZoneInISOFormat(),
+					},
+				},
 			},
 		});
 		console.log('Success! Entry added.');
 	} catch (error) {
 		console.error(error.body);
 	}
+}
+
+function getBRTimeZoneInISOFormat(): string {
+	const dataUTC = new Date();
+	const offsetBrazil = -3; // Fuso horário do Brasil: UTC-3
+	const dataBrazil = new Date(dataUTC.getTime() + offsetBrazil * 60 * 60 * 1000);
+
+	return dataBrazil.toISOString();
 }
