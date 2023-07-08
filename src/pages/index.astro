@@ -22,7 +22,9 @@ import { Icon } from 'astro-icon';
 <style>
 	main {
 		background-color: black;
-		background: url('../images/hero-background.png') center;
+		background-image: url('../images/hero-background-2.png');
+		background-position: center;
+		background-size: cover;
 		height: 100dvh;
 		display: grid;
 		gap: 90px;
@@ -30,12 +32,14 @@ import { Icon } from 'astro-icon';
 		margin-inline: auto;
 		padding-inline: 1.5rem;
 	}
+
 	.main-content {
 		margin-inline: auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
+
 	.logo {
 		width: 200px;
 		overflow: hidden;
@@ -43,6 +47,7 @@ import { Icon } from 'astro-icon';
 		transform: translatey(0px);
 		animation: float 2s ease-in-out infinite;
 	}
+
 	.cta-title {
 		font-family: 'Passion One', sans-serif;
 		font-size: 3rem;
@@ -56,6 +61,7 @@ import { Icon } from 'astro-icon';
 			22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
 			41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
 	}
+
 	.cta-description {
 		font-size: 1.25rem;
 		text-align: center;
