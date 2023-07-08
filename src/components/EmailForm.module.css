@@ -22,27 +22,23 @@
 .email {
 	border-radius: 500px;
 	padding: 0.5rem;
-	border: 1px solid var(--accent);
-	color: #fff;
-	font-size: 1rem;
+	border: 1px solid white;
+	color: black;
+	font-size: 0.9rem;
 	width: 350px;
 	padding-inline: 20px;
-	background: transparent;
+	background: white;
 }
 
 .ctaBtn {
 	position: absolute;
-	right: 3px;
-	top: 1px;
-	background: black;
-	color: #fff100;
+	right: 6px;
+	top: 6px;
+	background: var(--accent);
+	color: #fff;
 	border: none;
 	border-radius: 500px;
-	padding: 15px 20px;
+	padding: 11.25px 15px;
 	transition: scale 250ms;
-}
-
-.ctaBtn:hover {
-	transition: 100ms;
-	scale: 1.1;
+	font-weight: 400;
 }

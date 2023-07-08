@@ -10,7 +10,7 @@ import { Icon } from 'astro-icon';
 		<div class='main-content'>
 			<img class='logo' src={logo} alt='Logo Bota Fé' />
 			<h1 class='cta-title'>Estamos chegando!</h1>
-			<p class='cta-description'>O programa que vai mudar sua vida.</p>
+			<p class='cta-description'>O programa que vai <span>mudar</span> sua vida.</p>
 		</div>
 		<EmailForm client:load />
 		<a href='https://www.instagram.com' class='icon-link'>
@@ -67,6 +67,10 @@ import { Icon } from 'astro-icon';
 		text-align: center;
 		max-width: 80ch;
 		opacity: 0.8;
+	}
+
+	.cta-description span {
+		font-weight: 700;
 	}
 
 	.icon-link {
