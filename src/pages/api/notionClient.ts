@@ -19,8 +19,8 @@ async function checkIfEmailExists(newEmail: string) {
 
 export const post: APIRoute = async ({ request }) => {
 	const data = await request.formData();
-	const email = data.get('email').toString();
-	const emailExists = await checkIfEmailExists(email.toLowerCase());
+	const email = data.get('email').toString().toLowerCase();
+	const emailExists = await checkIfEmailExists(email);
 
 	if (emailExists) {
 		return new Response(
