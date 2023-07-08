@@ -5,14 +5,27 @@ const notion = new Client({ auth: import.meta.env.NOTION_KEY });
 
 const databaseId = import.meta.env.NOTION_DATABASE_ID;
 
+async function checkIfEmailExists(newEmail: any) {
+	const response = await notion.databases.query({
+		database_id: databaseId,
+	});
+	const existingEmails = response.results.map(
+		// @ts-ignore
+		result => result.properties.Email.title[0].plain_text
+	);
+
+	return existingEmails.includes(newEmail);
+}
+
 export const post: APIRoute = async ({ request }) => {
 	const data = await request.formData();
 	const email = data.get('email');
+	const emailExists = await checkIfEmailExists(email);
 
-	if (!email) {
+	if (emailExists) {
 		return new Response(
 			JSON.stringify({
-				message: 'Por favor, insira um email válido',
+				message: 'Você já está cadastrado!',
 			}),
 			{ status: 400 }
 		);
@@ -42,7 +55,6 @@ async function addItem(text: any) {
 						},
 					],
 				},
-
 				Notificação: {
 					people: [
 						{
