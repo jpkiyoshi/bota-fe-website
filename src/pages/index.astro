@@ -44,7 +44,7 @@ import { Icon } from 'astro-icon';
 		width: 200px;
 		overflow: hidden;
 		filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
-		transform: translatey(0px);
+		transform: translatey(30px);
 		animation: float 2s ease-in-out infinite;
 	}
 
@@ -81,15 +81,15 @@ import { Icon } from 'astro-icon';
 	@keyframes float {
 		0% {
 			filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
-			transform: translatey(0px);
+			transform: translatey(30px);
 		}
 		50% {
 			filter: drop-shadow(0 25px 15px rgba(0, 0, 0, 0.2));
-			transform: translatey(-20px);
+			transform: translatey(10px);
 		}
 		100% {
 			filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
-			transform: translatey(0px);
+			transform: translatey(30px);
 		}
 	}
 </style>
