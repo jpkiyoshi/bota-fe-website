@@ -12,9 +12,6 @@
 .formControl {
 	position: relative;
 	display: flex;
-	justify-content: center;
-	gap: 10px;
-	width: fit-content;
 	margin-inline: auto;
 	height: 50px;
 }
@@ -22,12 +19,11 @@
 .email {
 	border-radius: 500px;
 	padding: 0.5rem;
-	border: 1px solid white;
-	color: black;
-	font-size: 0.9rem;
+	border: 1px solid #fff;
+	color: #000;
 	width: 350px;
+	font-size: 0.9rem;
 	padding-inline: 20px;
-	background: white;
 }
 
 .ctaBtn {
@@ -41,4 +37,10 @@
 	padding: 11.25px 15px;
 	transition: scale 250ms;
 	font-weight: 400;
+}
+
+@media screen and (max-width: 370px) {
+	.email {
+		width: 300px;
+	}
 }
