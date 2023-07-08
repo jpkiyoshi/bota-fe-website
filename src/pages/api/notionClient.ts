@@ -5,7 +5,7 @@ const notion = new Client({ auth: import.meta.env.NOTION_KEY });
 
 const databaseId = import.meta.env.NOTION_DATABASE_ID;
 
-async function checkIfEmailExists(newEmail: any) {
+async function checkIfEmailExists(newEmail: string) {
 	const response = await notion.databases.query({
 		database_id: databaseId,
 	});
@@ -19,8 +19,8 @@ async function checkIfEmailExists(newEmail: any) {
 
 export const post: APIRoute = async ({ request }) => {
 	const data = await request.formData();
-	const email = data.get('email');
-	const emailExists = await checkIfEmailExists(email);
+	const email = data.get('email').toString();
+	const emailExists = await checkIfEmailExists(email.toLowerCase());
 
 	if (emailExists) {
 		return new Response(
@@ -41,7 +41,7 @@ export const post: APIRoute = async ({ request }) => {
 	);
 };
 
-async function addItem(text: any) {
+async function addItem(text: string) {
 	try {
 		const response = await notion.pages.create({
 			parent: { database_id: databaseId },
@@ -71,6 +71,7 @@ async function addItem(text: any) {
 			},
 		});
 		console.log('Success! Entry added.');
+		console.log(response);
 	} catch (error) {
 		console.error(error.body);
 	}
