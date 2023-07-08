@@ -15,8 +15,10 @@
     "@notionhq/client": "^2.2.6",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "@types/ua-parser-js": "^0.7.36",
     "astro": "^2.7.4",
     "astro-icon": "^0.8.1",
-    "preact": "^10.15.1"
+    "preact": "^10.15.1",
+    "ua-parser-js": "^1.0.35"
   }
 }

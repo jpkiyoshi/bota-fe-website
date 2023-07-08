@@ -1,24 +1,16 @@
 import type { APIRoute } from 'astro';
 import { Client } from '@notionhq/client';
+import UAParser from 'ua-parser-js';
 
 const notion = new Client({ auth: import.meta.env.NOTION_KEY });
 
 const databaseId = import.meta.env.NOTION_DATABASE_ID;
 
-async function checkIfEmailExists(newEmail: string) {
-	const response = await notion.databases.query({
-		database_id: databaseId,
-	});
-	const existingEmails = response.results.map(
-		// @ts-ignore
-		result => result.properties.Email.title[0].plain_text
-	);
-
-	return existingEmails.includes(newEmail);
-}
-
 export const post: APIRoute = async ({ request }) => {
 	const data = await request.formData();
+	const userAgent = request.headers.get('user-agent');
+	const { os, browser } = parseUserAgent(userAgent);
+
 	const email = data.get('email').toString().toLowerCase();
 	const emailExists = await checkIfEmailExists(email);
 
@@ -31,7 +23,7 @@ export const post: APIRoute = async ({ request }) => {
 		);
 	}
 
-	await addItem(email);
+	await addItem({ email, os, browser });
 
 	return new Response(
 		JSON.stringify({
@@ -41,7 +33,7 @@ export const post: APIRoute = async ({ request }) => {
 	);
 };
 
-async function addItem(text: string) {
+async function addItem(item: { email: string; os: string; browser: string }) {
 	try {
 		const response = await notion.pages.create({
 			parent: { database_id: databaseId },
@@ -50,7 +42,7 @@ async function addItem(text: string) {
 					title: [
 						{
 							text: {
-								content: text,
+								content: item.email,
 							},
 						},
 					],
@@ -68,6 +60,26 @@ async function addItem(text: string) {
 						start: getBRTimeZoneInISOFormat(),
 					},
 				},
+				'Sistema Operacional': {
+					rich_text: [
+						{
+							type: 'text',
+							text: {
+								content: item.os,
+							},
+						},
+					],
+				},
+				Browser: {
+					rich_text: [
+						{
+							type: 'text',
+							text: {
+								content: item.browser,
+							},
+						},
+					],
+				},
 			},
 		});
 		console.log('Success! Entry added.');
@@ -75,6 +87,26 @@ async function addItem(text: string) {
 	} catch (error) {
 		console.error(error.body);
 	}
+}
+
+async function checkIfEmailExists(newEmail: string) {
+	const response = await notion.databases.query({
+		database_id: databaseId,
+	});
+	const existingEmails = response.results.map(
+		// @ts-ignore
+		result => result.properties.Email.title[0].plain_text
+	);
+
+	return existingEmails.includes(newEmail);
+}
+
+function parseUserAgent(userAgent: string) {
+	const parser = UAParser(userAgent);
+	return {
+		os: `${parser.os.name} ${parser.os.version}`,
+		browser: `${parser.browser.name} ${parser.browser.version}`,
+	};
 }
 
 function getBRTimeZoneInISOFormat(): string {
