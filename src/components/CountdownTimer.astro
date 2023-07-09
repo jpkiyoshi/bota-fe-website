@@ -1,0 +1,108 @@
+---
+---
+
+<div class='clockdiv'>
+	<div class='clock-display'>
+		<span id='day'></span>
+		<p>Dias</p>
+	</div>
+	<div class='clock-display'>
+		<span ' id='hour'></span>
+		<p>Horas</p>
+	</div>
+	<div class='clock-display'>
+		<span id='minute'></span>
+		<p>Minutos</p>
+	</div>
+	<div class='clock-display'>
+		<span id='second'></span>
+		<p>Segundos</p>
+	</div>
+</div>
+<p id='demo'></p>
+
+<script>
+	const deadline = new Date('aug 17, 2023 00:00:00').getTime();
+
+	const x = setInterval(function () {
+		const now = new Date().getTime();
+
+		const t = deadline - now;
+
+		const days = addZeroIfLessThan10(Math.floor(t / (1000 * 60 * 60 * 24)));
+		const hours = addZeroIfLessThan10(
+			Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+		);
+		const minutes = addZeroIfLessThan10(
+			Math.floor((t % (1000 * 60 * 60)) / (1000 * 60))
+		);
+		const seconds = addZeroIfLessThan10(Math.floor((t % (1000 * 60)) / 1000));
+
+		document.getElementById('day').innerHTML = days;
+		document.getElementById('hour').innerHTML = hours;
+		document.getElementById('minute').innerHTML = minutes;
+		document.getElementById('second').innerHTML = seconds;
+
+		if (t < 0) {
+			clearInterval(x);
+			document.getElementById('day').innerHTML = '0';
+			document.getElementById('hour').innerHTML = '0';
+			document.getElementById('minute').innerHTML = '0';
+			document.getElementById('second').innerHTML = '0';
+		}
+	}, 1000);
+
+	const addZeroIfLessThan10 = (num: number) => {
+		if (num < 10) {
+			return '0' + num.toString();
+		}
+		return num.toString();
+	};
+</script>
+
+<style>
+	.clockdiv {
+		font-family: 'Montserrat', sans-serif;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		background-color: hsla(0, 0%, 10%, 0.8);
+		box-shadow: 0 2px 0 hsla(0, 0%, 100%, 0.15), inset 0 2px 2px hsla(0, 0%, 0%, 0.5);
+		color: white;
+		padding: 10px;
+		border-radius: 5px;
+	}
+
+	.clock-display {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.clock-display:not(:last-child) {
+		border-right: 1px solid #000;
+	}
+
+	.clock-display > span {
+		font-size: 3rem;
+		font-weight: 700;
+	}
+
+	.clock-display > p {
+		font-weight: 200;
+		letter-spacing: 1px;
+		font-size: 0.6rem;
+		text-transform: uppercase;
+		opacity: 0.6;
+	}
+
+	@media screen and (max-width: 550px) {
+		.clock-display > span {
+			font-size: 2rem;
+			font-weight: 700;
+		}
+
+		.clock-display > p {
+			font-size: 0.5rem;
+		}
+	}
+</style>

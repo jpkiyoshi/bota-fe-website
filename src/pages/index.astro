@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import logo from '../images/logo-bota-fe.png';
 import EmailForm from '../components/EmailForm';
+import CountdownTimer from '../components/CountdownTimer.astro';
 import { Icon } from 'astro-icon';
 ---
 
@@ -11,6 +12,9 @@ import { Icon } from 'astro-icon';
 			<img class='logo' src={logo} alt='Logo Bota Fé' />
 			<h1 class='cta-title'>Estamos chegando!</h1>
 			<p class='cta-description'>O programa que vai <span>mudar</span> sua vida.</p>
+		</div>
+		<div class='countdown'>
+			<CountdownTimer />
 		</div>
 		<EmailForm client:load />
 		<a href='https://www.instagram.com' class='icon-link'>
@@ -26,9 +30,9 @@ import { Icon } from 'astro-icon';
 		background-position: center;
 		background-size: cover;
 		height: 100dvh;
-		display: grid;
-		gap: 90px;
-		place-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	.main-content {
@@ -69,6 +73,11 @@ import { Icon } from 'astro-icon';
 		font-weight: 700;
 	}
 
+	.countdown {
+		margin-inline: auto;
+		width: 500px;
+	}
+
 	.icon-link {
 		color: #fff;
 		margin-inline: auto;
@@ -90,6 +99,17 @@ import { Icon } from 'astro-icon';
 		100% {
 			filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
 			transform: translatey(30px);
+		}
+	}
+
+	@media screen and (max-width: 550px) {
+		.countdown {
+			margin-inline: auto;
+			width: 300px;
+		}
+
+		.logo {
+			width: 120px;
 		}
 	}
 </style>
