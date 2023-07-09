@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/netlify": "^2.3.0",
     "@astrojs/preact": "^2.2.1",
+    "@fontsource/montserrat": "^5.0.4",
     "@fontsource/passion-one": "^5.0.4",
     "@fontsource/roboto": "^5.0.4",
     "@notionhq/client": "^2.2.6",
