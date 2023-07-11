@@ -7,12 +7,12 @@ import { Icon } from 'astro-icon';
 ---
 
 <Layout title='Programa Bota Fé'>
-	<main>
-		<div class='main-content'>
+	<main role='main'>
+		<header role='banner' class='main-content'>
 			<img class='logo' src={logo} alt='Logo Bota Fé' />
 			<h1 class='cta-title'>Estamos chegando!</h1>
 			<p class='cta-description'>O programa que vai <span>mudar</span> sua vida.</p>
-		</div>
+		</header>
 		<CountdownTimer />
 		<EmailForm client:load />
 		<a href='https://www.instagram.com' class='icon-link'>
