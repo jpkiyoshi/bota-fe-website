@@ -33,18 +33,6 @@ const EmailForm = () => {
 					<label htmlFor='email'>
 						Inscreva-se para ser notificado assim que o programa estrear!
 					</label>
-					{/* <div className={styles.formControl}>
-						<input
-							required
-							minLength={5}
-							type='email'
-							placeholder='Email'
-							name='email'
-							id='email'
-							className={styles.emailInput}
-						/>
-						<button className={styles.ctaBtn}>Inscrever-se</button>
-					</div> */}
 					<TextInput type='email' />
 				</>
 			)}
