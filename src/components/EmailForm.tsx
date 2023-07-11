@@ -40,7 +40,7 @@ const EmailForm = () => {
 							placeholder='Email'
 							name='email'
 							id='email'
-							className={styles.email}
+							className={styles.emailInput}
 						/>
 						<button className={styles.ctaBtn}>Inscrever-se</button>
 					</div>

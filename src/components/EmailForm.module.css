@@ -16,7 +16,7 @@
 	height: 50px;
 }
 
-.email {
+.emailInput {
 	border-radius: 500px;
 	padding: 0.5rem;
 	border: 1px solid var(--neutral-100);
@@ -60,7 +60,7 @@
 }
 
 @media screen and (max-width: 370px) {
-	.email {
+	.emailInput {
 		width: 300px;
 	}
 }
