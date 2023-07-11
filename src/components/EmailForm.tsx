@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './EmailForm.module.css';
 import { JSXInternal } from 'preact/src/jsx';
+import TextInput from './TextInput';
 
 const EmailForm = () => {
 	const [successMsg, setSuccessMsg] = useState<string>('');
@@ -32,7 +33,7 @@ const EmailForm = () => {
 					<label htmlFor='email'>
 						Inscreva-se para ser notificado assim que o programa estrear!
 					</label>
-					<div className={styles.formControl}>
+					{/* <div className={styles.formControl}>
 						<input
 							required
 							minLength={5}
@@ -43,7 +44,8 @@ const EmailForm = () => {
 							className={styles.emailInput}
 						/>
 						<button className={styles.ctaBtn}>Inscrever-se</button>
-					</div>
+					</div> */}
+					<TextInput type='email' />
 				</>
 			)}
 			{successMsg && (
