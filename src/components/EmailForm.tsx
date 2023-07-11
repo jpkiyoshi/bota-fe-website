@@ -42,11 +42,15 @@ const EmailForm = () => {
 							id='email'
 							className={styles.email}
 						/>
-						<button className={styles.ctaBtn}>Enviar</button>
+						<button className={styles.ctaBtn}>Inscrever-se</button>
 					</div>
 				</>
 			)}
-			{successMsg && <p>{successMsg}</p>}
+			{successMsg && (
+				<div className={styles.successMsg}>
+					<p>{successMsg}</p>
+				</div>
+			)}
 		</form>
 	);
 };

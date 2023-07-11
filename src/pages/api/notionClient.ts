@@ -17,7 +17,8 @@ export const post: APIRoute = async ({ request }) => {
 	if (emailExists) {
 		return new Response(
 			JSON.stringify({
-				message: 'Você já está cadastrado!',
+				message:
+					'Ops! Esse email já está na nossa lista. Fique tranquilo, você não perderá nenhuma novidade!',
 			}),
 			{ status: 400 }
 		);
@@ -27,7 +28,8 @@ export const post: APIRoute = async ({ request }) => {
 
 	return new Response(
 		JSON.stringify({
-			message: 'Obrigado!',
+			message:
+				'Seu email foi registrado com sucesso! Você será o primeiro a saber quando o nosso programa estrear.',
 		}),
 		{ status: 200 }
 	);

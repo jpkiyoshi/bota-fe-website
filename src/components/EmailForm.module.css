@@ -6,7 +6,7 @@
 }
 
 .form label {
-	opacity: 0.8;
+	color: var(--neutral-200);
 }
 
 .formControl {
@@ -19,24 +19,44 @@
 .email {
 	border-radius: 500px;
 	padding: 0.5rem;
-	border: 1px solid #fff;
-	color: #000;
+	border: 1px solid var(--neutral-100);
+	color: var(--neutral-1000);
 	width: 350px;
 	font-size: 0.9rem;
 	padding-inline: 20px;
+	background-color: var(--neutral-100);
 }
 
 .ctaBtn {
 	position: absolute;
 	right: 6px;
 	top: 6px;
-	background: var(--accent);
-	color: #fff;
+	background-color: var(--primary-600);
+	color: var(--neutral-100);
 	border: none;
 	border-radius: 500px;
 	padding: 11.25px 15px;
 	transition: scale 250ms;
 	font-weight: 400;
+	transition: background-color 250ms;
+}
+
+.ctaBtn:hover {
+	background-color: var(--primary-700);
+}
+
+.successMsg {
+	background-color: var(--primary-100);
+	padding-block: 10px;
+	padding-inline: 15px;
+	text-align: center;
+	color: var(--primary-900);
+	border: 1px solid var(--primary-200);
+	border-radius: 5px;
+	box-shadow: 0 15px 35px hsla(0, 0%, 0%, 0.2);
+	width: fit-content;
+	max-width: 90%;
+	margin-inline: auto;
 }
 
 @media screen and (max-width: 370px) {
