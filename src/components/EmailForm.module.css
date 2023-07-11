@@ -5,20 +5,6 @@
 	text-align: center;
 }
 
-.successMsg {
-	background-color: var(--primary-100);
-	padding-block: 10px;
-	padding-inline: 15px;
-	text-align: center;
-	color: var(--primary-900);
-	border: 1px solid var(--primary-200);
-	border-radius: 5px;
-	box-shadow: 0 15px 35px hsla(0, 0%, 0%, 0.2);
-	width: fit-content;
-	max-width: 90%;
-	margin-inline: auto;
-}
-
 @media screen and (max-width: 370px) {
 	.emailInput {
 		width: 300px;

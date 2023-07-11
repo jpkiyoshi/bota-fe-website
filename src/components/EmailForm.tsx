@@ -2,9 +2,10 @@ import { useState } from 'react';
 import styles from './EmailForm.module.css';
 import { JSXInternal } from 'preact/src/jsx';
 import TextInput from './TextInput';
+import Alert from './Alert';
 
 const EmailForm = () => {
-	const [successMsg, setSuccessMsg] = useState<string>('');
+	const [responseMsg, setResponseMsg] = useState({ type: null, text: null });
 	const [showForm, setShowForm] = useState<boolean>(true);
 
 	async function handleSubmit(e: JSXInternal.TargetedEvent<HTMLFormElement, Event>) {
@@ -20,7 +21,10 @@ const EmailForm = () => {
 		const data = await response.json();
 
 		if (data.message) {
-			setSuccessMsg(data.message);
+			setResponseMsg({
+				type: data.type,
+				text: data.message,
+			});
 		}
 
 		setShowForm(false);
@@ -36,10 +40,8 @@ const EmailForm = () => {
 					<TextInput type='email' />
 				</>
 			)}
-			{successMsg && (
-				<div className={styles.successMsg}>
-					<p>{successMsg}</p>
-				</div>
+			{responseMsg.text && (
+				<Alert type={responseMsg.type} text={responseMsg.text} />
 			)}
 		</form>
 	);
