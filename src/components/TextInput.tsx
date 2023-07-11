@@ -1,10 +1,12 @@
 import styles from './TextInput.module.css';
+import LoadingSpinner from './LoadingSpinner';
 
 type TextInputProps = {
 	type: string;
+	loading: boolean;
 };
 
-const TextInput = ({ type }: TextInputProps) => {
+const TextInput = ({ type, loading }: TextInputProps) => {
 	return (
 		<div className={styles.formControl}>
 			<input
@@ -16,7 +18,9 @@ const TextInput = ({ type }: TextInputProps) => {
 				id={type}
 				className={styles.emailInput}
 			/>
-			<button className={styles.ctaBtn}>Inscrever-se</button>
+			<button className={styles.ctaBtn}>
+				{loading ? <LoadingSpinner /> : 'Inscrever-se'}
+			</button>
 		</div>
 	);
 };

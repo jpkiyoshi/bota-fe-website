@@ -5,11 +5,13 @@ import TextInput from './TextInput';
 import Alert from './Alert';
 
 const EmailForm = () => {
+	const [loading, setLoading] = useState(false);
 	const [responseMsg, setResponseMsg] = useState({ type: null, text: null });
 	const [showForm, setShowForm] = useState<boolean>(true);
 
 	async function handleSubmit(e: JSXInternal.TargetedEvent<HTMLFormElement, Event>) {
 		e.preventDefault();
+		setLoading(true);
 
 		const formData = new FormData(e.currentTarget);
 
@@ -28,6 +30,7 @@ const EmailForm = () => {
 		}
 
 		setShowForm(false);
+		setLoading(false);
 	}
 
 	return (
@@ -37,7 +40,7 @@ const EmailForm = () => {
 					<label htmlFor='email'>
 						Inscreva-se para ser notificado assim que o programa estrear!
 					</label>
-					<TextInput type='email' />
+					<TextInput type='email' loading={loading} />
 				</>
 			)}
 			{responseMsg.text && (
