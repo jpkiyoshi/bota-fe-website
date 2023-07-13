@@ -4,12 +4,15 @@ import EmailForm from '../components/EmailForm';
 import CountdownTimer from '../components/CountdownTimer.astro';
 import { Icon } from 'astro-icon';
 import Logo from '../components/Logo';
+import HeroImg from '../images/hero-background.webp';
 ---
 
 <Layout title='Programa Bota Fé'>
 	<main
 		role='main'
-		class='bg-cool-grey-900 bg-[url("src/images/hero-background.webp")] bg-center bg-cover h-screen flex flex-col justify-between font-body p-2'
+		class={`bg-cool-grey-900 bg-[url('${HeroImg.slice(
+			1
+		)}')] bg-center bg-cover h-screen flex flex-col justify-between font-body p-2`}
 	>
 		<header role='banner' class='flex flex-col items-center'>
 			<Logo />
