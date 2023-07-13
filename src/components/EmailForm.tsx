@@ -34,10 +34,10 @@ const EmailForm = () => {
 	}
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit}>
+		<form className='flex flex-col gap-2 text-center mx-3' onSubmit={handleSubmit}>
 			{showForm && (
 				<>
-					<label htmlFor='email'>
+					<label htmlFor='email' class='text-cool-grey-100'>
 						Inscreva-se para ser notificado assim que o programa estrear!
 					</label>
 					<TextInput type='email' loading={loading} />

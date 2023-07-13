@@ -1,116 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import logo from '../images/logo-bota-fe.png';
 import EmailForm from '../components/EmailForm';
 import CountdownTimer from '../components/CountdownTimer.astro';
 import { Icon } from 'astro-icon';
+import Logo from '../components/Logo';
+import HeroImg from '../images/hero-background.webp';
 ---
 
 <Layout title='Programa Bota Fé'>
-	<main role='main'>
-		<header role='banner' class='main-content'>
-			<img class='logo' src={logo} alt='Logo Bota Fé' />
-			<h1 class='cta-title'>Estamos chegando!</h1>
-			<p class='cta-description'>O programa que vai <span>mudar</span> sua vida.</p>
+	<main
+		role='main'
+		class={`bg-cool-grey-900 bg-center bg-cover h-screen flex flex-col justify-between font-body p-2`}
+		style={{ backgroundImage: `url(${HeroImg})` }}
+	>
+		<header role='banner' class='flex flex-col items-center'>
+			<Logo />
+			<h1
+				class='font-["Passion_One"] text-5xl mt-12 uppercase text-center drop-shadow-xl text-gray-50'
+				style={{
+					fontSize:
+						'clamp(3rem, 2.428571428571429rem + 2.857142857142857vw, 5rem)',
+				}}
+			>
+				Estamos chegando!
+			</h1>
+			<p class='text-xl sm:text-2xl text-center max-w-prose text-cool-grey-100'>
+				O programa que vai <span class='font-bold uppercase text-pink-vivid-400'
+					>mudar</span
+				> sua vida.
+			</p>
 		</header>
 		<CountdownTimer />
 		<EmailForm client:load />
-		<a aria-label='Instagram link' href='https://www.instagram.com' class='icon-link'>
+		<a
+			aria-label='Instagram link'
+			href='https://www.instagram.com'
+			class='mx-auto w-6 text-cool-grey-50 hover:text-pink-vivid-400'
+		>
 			<Icon name='mdi:instagram' /></a
 		>
 	</main>
 </Layout>
-
-<style>
-	main {
-		background-color: black;
-		background-image: url('../images/hero-background.webp');
-		background-position: center;
-		background-size: cover;
-		height: 100vh;
-		height: 100dvh;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-
-	.main-content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.logo {
-		width: 200px;
-		filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
-		transform: translatey(30px);
-		animation: float 2s ease-in-out infinite;
-	}
-
-	.cta-title {
-		font-family: 'Passion One', sans-serif;
-		font-size: 3rem;
-		font-size: clamp(3rem, 2.428571428571429rem + 2.857142857142857vw, 5rem);
-		margin-block-start: 50px;
-		text-transform: uppercase;
-		text-align: center;
-		text-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-			6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-			12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-			22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-			41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
-		color: var(--neutral-100);
-		line-height: 0.9;
-	}
-
-	.cta-description {
-		font-size: 1.5rem;
-		text-align: center;
-		max-width: 80ch;
-		color: var(--neutral-200);
-	}
-
-	.cta-description span {
-		font-weight: 700;
-		color: var(--primary-500);
-		text-transform: uppercase;
-	}
-
-	.icon-link {
-		color: var(--neutral-100);
-		margin-inline: auto;
-	}
-
-	.icon-link:hover {
-		color: var(--primary-500);
-	}
-
-	[astro-icon] {
-		width: 25px;
-	}
-
-	@keyframes float {
-		0% {
-			filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
-			transform: translatey(30px);
-		}
-		50% {
-			filter: drop-shadow(0 25px 15px rgba(0, 0, 0, 0.2));
-			transform: translatey(10px);
-		}
-		100% {
-			filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
-			transform: translatey(30px);
-		}
-	}
-
-	@media screen and (max-width: 520px) {
-		.logo {
-			width: 120px;
-		}
-
-		.cta-description {
-			font-size: 1.2rem;
-		}
-	}
-</style>
