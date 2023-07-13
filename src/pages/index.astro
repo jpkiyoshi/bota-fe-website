@@ -7,22 +7,39 @@ import { Icon } from 'astro-icon';
 ---
 
 <Layout title='Programa Bota Fé'>
-	<main role='main'>
-		<header role='banner' class='main-content'>
+	<main
+		role='main'
+		class='bg-gray-950 bg-[url("src/images/hero-background.webp")] bg-center bg-cover h-screen flex flex-col justify-between'
+	>
+		<header role='banner' class='flex flex-col items-center'>
 			<img class='logo' src={logo} alt='Logo Bota Fé' />
-			<h1 class='cta-title'>Estamos chegando!</h1>
-			<p class='cta-description'>O programa que vai <span>mudar</span> sua vida.</p>
+			<h1
+				class='font-["Passion_One"] text-5xl mt-12 uppercase text-center shadow-md text-gray-50'
+				style={{
+					fontSize:
+						'clamp(3rem, 2.428571428571429rem + 2.857142857142857vw, 5rem)',
+				}}
+			>
+				Estamos chegando!
+			</h1>
+			<p class='text-xl sm:text-2xl text-center max-w-prose'>
+				O programa que vai <span class='font-bold uppercase'>mudar</span> sua vida.
+			</p>
 		</header>
 		<CountdownTimer />
 		<EmailForm client:load />
-		<a aria-label='Instagram link' href='https://www.instagram.com' class='icon-link'>
+		<a
+			aria-label='Instagram link'
+			href='https://www.instagram.com'
+			class='mx-auto w-6'
+		>
 			<Icon name='mdi:instagram' /></a
 		>
 	</main>
 </Layout>
 
 <style>
-	main {
+	/* main {
 		background-color: black;
 		background-image: url('../images/hero-background.webp');
 		background-position: center;
@@ -32,13 +49,13 @@ import { Icon } from 'astro-icon';
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-	}
+	} */
 
-	.main-content {
+	/* .main-content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-	}
+	} */
 
 	.logo {
 		width: 200px;
@@ -47,47 +64,31 @@ import { Icon } from 'astro-icon';
 		animation: float 2s ease-in-out infinite;
 	}
 
-	.cta-title {
-		font-family: 'Passion One', sans-serif;
-		font-size: 3rem;
-		font-size: clamp(3rem, 2.428571428571429rem + 2.857142857142857vw, 5rem);
-		margin-block-start: 50px;
-		text-transform: uppercase;
-		text-align: center;
-		text-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-			6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-			12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-			22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-			41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
-		color: var(--neutral-100);
-		line-height: 0.9;
-	}
-
-	.cta-description {
+	/* .cta-description {
 		font-size: 1.5rem;
 		text-align: center;
 		max-width: 80ch;
 		color: var(--neutral-200);
-	}
+	} */
 
-	.cta-description span {
+	/* .cta-description span {
 		font-weight: 700;
 		color: var(--primary-500);
 		text-transform: uppercase;
-	}
+	} */
 
-	.icon-link {
+	/* .icon-link {
 		color: var(--neutral-100);
 		margin-inline: auto;
-	}
+	} */
 
 	.icon-link:hover {
 		color: var(--primary-500);
 	}
-
+	/* 
 	[astro-icon] {
 		width: 25px;
-	}
+	} */
 
 	@keyframes float {
 		0% {
