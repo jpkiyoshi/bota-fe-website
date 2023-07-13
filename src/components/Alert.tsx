@@ -7,12 +7,19 @@ type AlertProps = {
 
 const Alert = ({ type, text }: AlertProps) => {
 	return (
+		// <div
+		// 	className={`${styles.container} ${
+		// 		type === 'error' ? styles.error : styles.success
+		// 	}`}
+		// >
 		<div
-			className={`${styles.container} ${
-				type === 'error' ? styles.error : styles.success
+			className={`py-3 px-4 text-center rounded-md w-fit max-w-[90%] mx-auto text-base shadow-md ${
+				type === 'error'
+					? 'bg-red-vivid-50 text-red-vivid-900 border-2 border-red-vivid-400'
+					: 'bg-cyan-vivid-50 text-cyan-vivid-900 border-2 border-cyan-vivid-700'
 			}`}
 		>
-			<div className={styles.heading}>
+			<div className='flex items-center gap-1 mb-1'>
 				{type === 'error' ? (
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
@@ -38,13 +45,14 @@ const Alert = ({ type, text }: AlertProps) => {
 						/>
 					</svg>
 				)}
-				<h3>
+				<h3 class='text-base font-bold'>
 					{type === 'error'
 						? 'Ops! Email já cadastrado.'
 						: 'Email registrado com sucesso!'}
 				</h3>
 			</div>
-			<p>{text}</p>
+			{/* <p>{text}</p> */}
+			<p class='text-sm'>Fique tranquilo, você não perderá nenhuma novidade!</p>
 		</div>
 	);
 };

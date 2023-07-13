@@ -1,20 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import logo from '../images/logo-bota-fe.png';
 import EmailForm from '../components/EmailForm';
 import CountdownTimer from '../components/CountdownTimer.astro';
 import { Icon } from 'astro-icon';
+import Logo from '../components/Logo';
 ---
 
 <Layout title='Programa Bota Fé'>
 	<main
 		role='main'
-		class='bg-gray-950 bg-[url("src/images/hero-background.webp")] bg-center bg-cover h-screen flex flex-col justify-between'
+		class='bg-cool-grey-900 bg-[url("src/images/hero-background.webp")] bg-center bg-cover h-screen flex flex-col justify-between font-body p-2'
 	>
 		<header role='banner' class='flex flex-col items-center'>
-			<img class='logo' src={logo} alt='Logo Bota Fé' />
+			<Logo />
 			<h1
-				class='font-["Passion_One"] text-5xl mt-12 uppercase text-center shadow-md text-gray-50'
+				class='font-["Passion_One"] text-5xl mt-12 uppercase text-center drop-shadow-xl text-gray-50'
 				style={{
 					fontSize:
 						'clamp(3rem, 2.428571428571429rem + 2.857142857142857vw, 5rem)',
@@ -22,8 +22,10 @@ import { Icon } from 'astro-icon';
 			>
 				Estamos chegando!
 			</h1>
-			<p class='text-xl sm:text-2xl text-center max-w-prose'>
-				O programa que vai <span class='font-bold uppercase'>mudar</span> sua vida.
+			<p class='text-xl sm:text-2xl text-center max-w-prose text-cool-grey-100'>
+				O programa que vai <span class='font-bold uppercase text-pink-vivid-400'
+					>mudar</span
+				> sua vida.
 			</p>
 		</header>
 		<CountdownTimer />
@@ -31,87 +33,9 @@ import { Icon } from 'astro-icon';
 		<a
 			aria-label='Instagram link'
 			href='https://www.instagram.com'
-			class='mx-auto w-6'
+			class='mx-auto w-6 text-cool-grey-50 hover:text-pink-vivid-400'
 		>
 			<Icon name='mdi:instagram' /></a
 		>
 	</main>
 </Layout>
-
-<style>
-	/* main {
-		background-color: black;
-		background-image: url('../images/hero-background.webp');
-		background-position: center;
-		background-size: cover;
-		height: 100vh;
-		height: 100dvh;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	} */
-
-	/* .main-content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	} */
-
-	.logo {
-		width: 200px;
-		filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
-		transform: translatey(30px);
-		animation: float 2s ease-in-out infinite;
-	}
-
-	/* .cta-description {
-		font-size: 1.5rem;
-		text-align: center;
-		max-width: 80ch;
-		color: var(--neutral-200);
-	} */
-
-	/* .cta-description span {
-		font-weight: 700;
-		color: var(--primary-500);
-		text-transform: uppercase;
-	} */
-
-	/* .icon-link {
-		color: var(--neutral-100);
-		margin-inline: auto;
-	} */
-
-	.icon-link:hover {
-		color: var(--primary-500);
-	}
-	/* 
-	[astro-icon] {
-		width: 25px;
-	} */
-
-	@keyframes float {
-		0% {
-			filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
-			transform: translatey(30px);
-		}
-		50% {
-			filter: drop-shadow(0 25px 15px rgba(0, 0, 0, 0.2));
-			transform: translatey(10px);
-		}
-		100% {
-			filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
-			transform: translatey(30px);
-		}
-	}
-
-	@media screen and (max-width: 520px) {
-		.logo {
-			width: 120px;
-		}
-
-		.cta-description {
-			font-size: 1.2rem;
-		}
-	}
-</style>
