@@ -1,5 +1,3 @@
-import styles from './Alert.module.css';
-
 type AlertProps = {
 	type: 'error' | 'success';
 	text: string;
@@ -7,11 +5,6 @@ type AlertProps = {
 
 const Alert = ({ type, text }: AlertProps) => {
 	return (
-		// <div
-		// 	className={`${styles.container} ${
-		// 		type === 'error' ? styles.error : styles.success
-		// 	}`}
-		// >
 		<div
 			className={`py-3 px-4 text-center rounded-md w-fit max-w-[90%] mx-auto text-base shadow-md ${
 				type === 'error'
@@ -51,8 +44,7 @@ const Alert = ({ type, text }: AlertProps) => {
 						: 'Email registrado com sucesso!'}
 				</h3>
 			</div>
-			{/* <p>{text}</p> */}
-			<p class='text-sm'>Fique tranquilo, você não perderá nenhuma novidade!</p>
+			<p class='text-sm'>{text}</p>
 		</div>
 	);
 };
