@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styles from './EmailForm.module.css';
 import { JSXInternal } from 'preact/src/jsx';
 import TextInput from './TextInput';
 import Alert from './Alert';
@@ -15,7 +14,7 @@ const EmailForm = () => {
 
 		const formData = new FormData(e.currentTarget);
 
-		const response = await fetch('/api/notionClient', {
+		const response = await fetch('/api/mailchimpClient', {
 			method: 'POST',
 			body: formData,
 		});
