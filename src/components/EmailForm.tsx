@@ -14,7 +14,7 @@ const EmailForm = () => {
 
 		const formData = new FormData(e.currentTarget);
 
-		const response = await fetch('/api/mailchimpClient', {
+		const response = await fetch('/api/brevoClient', {
 			method: 'POST',
 			body: formData,
 		});
